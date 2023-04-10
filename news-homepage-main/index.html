@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | News homepage</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap');
+
+    :root{
+      --LaranjaClaro: hsl(35, 77%, 62%);
+      --VermeioClaro:hsl(5, 85%, 63%);
+
+      --Branco:hsl(36, 100%, 99%);
+      --Azulado:hsl(233, 8%, 79%);
+      --Cinza: hsl(236, 13%, 42%);
+      --Azul:hsl(240, 100%, 5%);
+    }
+
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body{
+      background-color: var(--Branco);
+      padding: .5% 8%;
+    }
+
+    nav{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .topo{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      padding: 2.5em;
+      font-weight: 600;
+      
+    }
+    .topo > a {
+      text-decoration: none;
+      color: var(--Cinza);
+      margin-right: 30px;
+    }
+
+    .topo > a:hover {
+      color: var(--VermeioClaro);
+    }
+    
+    main{
+      display: flex;
+    }
+
+    .centro{
+      display: flex;
+      flex-direction: column;
+      width: 65%;
+      padding-right: 2%;
+    }
+
+    .conteudo{ 
+      padding-top: 2%;
+      display: flex;
+    }
+
+
+    .direita{
+      display: flex;
+      flex-direction: column;
+    }
+
+    .direita > p {
+      text-align: left;
+      font-size: 18px;
+      color: var(--Cinza);
+      word-spacing: 4px;
+    }
+
+    .direita > button{
+      width: 15vw;
+      margin-top: 2em;
+      padding: 1em;
+      letter-spacing: 5px;
+      font-size: 1em;
+      color: white;
+      background-color: var(--VermeioClaro);
+      border: none;
+      cursor: pointer;
+    }
+
+    .direita > button:hover{  
+      background-color: var(--Azul);
+    }
+
+    .conteudo > h1{  
+      font-size: 3.5em;
+      width: 100%;
+      line-height: 1em;
+      font-weight: 800;
+        
+    }
+
+    .side{
+      width: 30% ;
+      background-color: var(--Azul);
+      display: flex;
+      flex-direction: column;
+      padding: 2%;
+    }
+
+    .side > h1{
+      color: var(--LaranjaClaro);
+      font-size: 3em;
+    }
+
+    .side > a{
+      padding-top: 10%;
+      text-decoration: none;
+      font-size: 1.5em;
+      font-weight: 800;
+      color: var(--Branco);
+    }
+
+    .side > a:hover{
+      color: var(--LaranjaClaro);
+      cursor: pointer;
+    }
+
+    .side > p{
+      padding-bottom: 8%;
+      padding-top: 3%;
+      color: var(--Azulado);
+    }
+
+    footer{
+      display: flex;
+      padding-top: 1.5%;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .example1{
+      display: flex;
+    }
+
+    .descri1{
+      display: flex;
+      flex-direction: column;
+      padding-left: 4%;
+    }
+    .descri1 > h2{
+      color: var(--Azulado);
+      font-size: 2em;
+    }
+  
+    .descri1 > a{
+      padding-top: 3%;
+      font-weight: 800;
+      font-size: 1.3em;
+      text-decoration: none;
+      color: var(--Azul);
+    }
+
+    .descri1 > a:hover{
+      color: var(--VermeioClaro);
+    }
+
+  .descri1 > p {
+    padding-top: 2%;
+    color: var(--Cinza);
+  }
+
+  .hamburguer{
+    display: none;
+  }
+
+  #imagecelular{
+    display: none;
+  }
+
+    @media (max-width:768px){
+      main{
+      display: flex;
+      flex-direction: column;
+    }
+
+    .centro {
+      display: flex;
+      flex-direction: column;
+    }
+    .centro > img{
+      width: 85vw;
+    }
+    .conteudo{
+      display: flex;
+      flex-direction: column;
+    }
+    .conteudo > h1{
+      font-size: 3.5em;
+      width: 85vw;
+      margin-top: 10px;
+    }
+    .direita {
+      display: flex;
+      flex-direction: column;
+    }
+    .direita > p{
+      width: 85vw;
+    }
+    .direita > button{
+      width: 100%;
+    
+    }
+    .side{
+      margin-top: 2.5em;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+
+    footer{
+      display: flex;
+      flex-direction: column;
+    }
+    .example1{
+      margin-top: 1.5em;
+    }
+
+    .hamburguer {
+        display: flex;
+        cursor: pointer;
+    }
+
+    nav{
+      padding: 4%;
+    }
+
+    .topo{
+      position: fixed;
+      right: -100%;
+      top: 3rem;
+      flex-direction: column;
+      background-color: #fff;
+      width: 50%;
+      border-radius: 10px;
+      text-align: center;
+      transition: 0.3s;
+      box-shadow:
+      0 10px 27px rgba(0, 0, 0, 0.05);
+    }
+
+    .topo.active{
+      right: 0;
+    }
+
+    .topo >  a {
+      margin: .5em;
+    }
+
+    #imageDesktop{
+      display: none;
+    }
+
+    #imagecelular{
+      display: flex;
+    }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <img src="/news-homepage-main/assets/images/logo.svg" alt="">
+      <div class="topo">   
+        <a href="#">Home</a>
+        <a href="#">New</a> 
+        <a href="#">Popular</a> 
+        <a href="#">Trending</a> 
+        <a href="#">Categories</a> 
+      </div>
+      <div class="hamburguer">
+        <img src="/news-homepage-main/assets/images/icon-menu.svg" alt="">
+      </div>
+  </nav>
+ <main>
+  <div class="centro">
+    <img id="imageDesktop" src="/news-homepage-main/assets/images/image-web-3-desktop.jpg" alt="" >
+    <img id="imagecelular" src="/news-homepage-main/assets/images/image-web-3-mobile.jpg" alt="">
+    <div class="conteudo">
+      <h1>The Bright Future of Web 3.0?</h1>
+        <div class="direita">
+          <p> We dive into the next evolution of the web that claims to put the power of the platforms back into the hands of the people. 
+            But is it really fulfilling its promise?</p>
+          <button>READ MORE</button>
+        </div>
+    </div>
+  </div>
+  <div class="side">
+   <h1>New</h1>  
+    <a href="#">Hydrogen VS Electric Cars</a> 
+        <p> Will hydrogen-fueled cars ever catch up to EVs?</p>
+      <hr>
+    <a href="#">The Downsides of AI Artistry</a> 
+        <p> What are the possible adverse effects of on-demand AI image generation?</p>
+      <hr>
+    <a href="#">Is VC Funding Drying Up?</a>  
+      <p>Private funding by VC firms is down 50% YOY. We take a look at what that means.</p>  
+  </div>  
+  
+ </main>
+
+  <footer>
+    <div class="example1">
+      <img src="/news-homepage-main/assets/images/image-retro-pcs.jpg" alt="" height="150">
+        <div class="descri1">
+          <h2>01</h2>
+          <a href="#">Reviving Retro PCs</a>
+          <p>What happens when old PCs are given modern upgrades?</p> 
+        </div>
+    </div>
+    <div class="example1">
+      <img src="/news-homepage-main/assets/images/image-top-laptops.jpg" alt="" height="150">
+        <div class="descri1">
+          <h2>02</h2>
+          <a href="#">Top 10 Laptops of 2022</a>
+          <p> Our best picks for various needs and budgets.</p>
+        </div>
+    </div>  
+    <div class="example1">
+      <img src="/news-homepage-main/assets/images/image-gaming-growth.jpg" alt="" height="150">
+        <div class="descri1">
+            <h2>03</h2>
+          <a href="#">The Growth of Gaming</a>
+         <p> How the pandemic has sparked fresh opportunities.</p>
+        </div>
+    </div>
+  </footer>
+  <script>
+    
+    const hamburger = document.querySelector(".hamburguer");
+    const navMenu = document.querySelector(".topo");
+
+    hamburger.addEventListener("click", mobileMenu);
+
+    function mobileMenu() {
+        hamburger.classList.toggle("active");
+        navMenu.classList.toggle("active");
+}
+
+
+  </script>
+</body>
+</html>
